@@ -15,7 +15,7 @@ $curl 34.229.244.47/product
 2. With header but not birtdhay
 
 ```console
-$curl -H "x-user-id: steadylearner" 34.229.244.47/product"
+$curl -H "x-user-id: steadylearner" 34.229.244.47/product
 ```
 
 ```json

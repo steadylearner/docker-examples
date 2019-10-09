@@ -141,7 +141,7 @@ I used [graphql](https://github.com/steadylearner/Graphql-Express-Postgresql) fi
 
 I use **JavaScript, Rust, Python** and thought that **JavaScript** will be useful for this project because your company use Node and go language.
 
-1. I coded gRPC Node servers for users and products with postgresl in local machine.
+1. I coded gRPC Node servers for users and products with postgresql in local machine.
 
 2. I used **Tape** for end to end tests because it is faster and **Jest** for general tests and **ESLint** for organization and to find potential problems.
 

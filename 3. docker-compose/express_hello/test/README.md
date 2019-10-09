@@ -1,6 +1,6 @@
 # What can you do with it
 
-You can deploy it with aws ec2 and ecs and verify the result easily with express. Use it instead of the python app from the docker curriculum
+You can deploy it with aws ec2 and ecs and verify the result easily with express. Use it instead of the python app from the docker curriculum.
 
 ## READ First
 

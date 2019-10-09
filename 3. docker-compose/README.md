@@ -1,12 +1,12 @@
 # How to use aws
 
-1. [Make account first with aws](https://aws.amazon.com/) 
+1. [Make aws account first](https://aws.amazon.com/) 
 
-2. Read [how to make a docker-compose.yml](https://docs.docker.com/compose/compose-file/#command) and ecs-params.yml 
+2. Read [how to make a docker-compose.yml](https://docs.docker.com/compose/compose-file/#command) and ecs-params.yml.
 
 3. [Follow this example](https://docker-curriculum.com/#docker-on-aws)(It may not work perfectly for your project. So just refer to it and find more resources.). You can easily deploy your web app with [Dockerrun.aws.json or docker-compose.yml](https://docs.aws.amazon.com/pt_br/elasticbeanstalk/latest/dg/create_deploy_docker_v2config.html#create_deploy_docker_v2config_dockerrun) from [elasticbeanstalk](https://aws.amazon.com/pt/elasticbeanstalk/). 
 
-4. If you want to use datbase in docker container, refer to [this](https://www.saltycrane.com/blog/2019/01/how-run-postgresql-docker-mac-local-development
+4. If you want to use datbases in docker container, refer to [this](https://www.saltycrane.com/blog/2019/01/how-run-postgresql-docker-mac-local-development)
 
 5. [Install ecs-cli](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html), [aws cli](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/install-linux-al2017.html), and [Make key pair and save it in local machine](https://console.aws.amazon.com/ec2/home?region=us-east-1#KeyPairs:sort=keyName)
 
@@ -48,9 +48,9 @@ They are not helpful **if you don't want them a lot and all**. But read those fi
 
 2. [Read this if you find problem while you use ecs-cli](https://github.com/aws/amazon-ecs-cli/issues/627)
 
-The payload of 2. is you should use FARGATE instead of ec2. It will make **localhost:port** and **containername** work without problems in other containers. 
+The payload of them are **you should use FARGATE instead of ec2** to connect containers in the same network. It will make **localhost:port** and **containername** work as it does in your local docker-compose environment.(It only works with awsvpc option when you deploy them to aws and FARGATE is specialized to work only with awsvpc. The documentations won't never tell you about it directly.) 
 
-Use this command 
+Use this command.
 
 ```console
 $ecs-cli compose up --launch-type FARGATE

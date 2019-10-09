@@ -1,7 +1,7 @@
 // https://github.com/steadylearner/JavaScript-Full-Stack/blob/master/Express/src/test/index.js
 // https://www.google.com/search?client=firefox-b-d&q=jest+with+supertest+example
 
-// If files becomes larget, consider using jest instead
+// If files becomes larger, consider using jest instead
 
 const test = require("tape");
 const supertest = require("supertest");

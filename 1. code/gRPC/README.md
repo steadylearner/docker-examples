@@ -1,7 +1,7 @@
-# How to test it with postgresql and .env 
+# How to test it
 
-1. Set development environment products.sql, users.sql and birthdaySQL.js in db folder and .env
+1. Set development data with **products.sql, users.sql and birthdaySQL.js** in **db** folder and .env for postgresql user and database.
 
-2. **$yarn && yarn serve** in user_product and **yarn test-tape** in another console
+2. **$yarn && yarn serve** in **user_product** and **yarn test-tape** in another console.
 
-3. products folder will work without user_product also but because it uses data from it. Do the same processes in **2.** while other consoles from **2.** are not closed.
+3. Repeat the same process from **2.** in **products** folder while other consoles from **2.** are not closed. It will also work without them.

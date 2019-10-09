@@ -129,11 +129,11 @@ router.get("/", (req, res) => {
 
 ## Requirements
 
-1. Use gRPC and make two separate services with it. Then, deploy them with docker containers.
+1. Use gRPC and make two separate services with it for [user, product] and products. Then, deploy them with docker containers.
 
-2. When user send GET request to /product return products(Birthday 0.05, Blackfirday 0.1).
+2. When user send GET request to /product return products(With "x-user-id" header, conditioanlly give Birthday 0.05, Blackfirday 0.1 discount).
 
-3. product service should work without user gRPC service also.
+3. **product service** should work without user gRPC service also.
 
 ## Development Process
 
@@ -141,12 +141,12 @@ I used [graphql](https://github.com/steadylearner/Graphql-Express-Postgresql) fi
 
 I use **JavaScript, Rust, Python** and thought that **JavaScript** will be useful for this project because your company use Node and go language.
 
-1. I coded gRPC Node servers for users and products with postgresql in local machine.
+1. I coded gRPC Node servers for users and products with postgresql in the localhost.
 
 2. I used **Tape** for end to end tests because it is faster and **Jest** for general tests and **ESLint** for organization and to find potential problems.
 
-3. Then, I built docker containers for products, users and postgresql to test it locally with **$docker-compose up -d** and docker-compose.yml.
+3. Then, I built docker containers for products, users and postgresql to test it locally with **Dockerfile**, **$docker-compose up -d** and the **docker-compose.yml**.
 
-4. I decided to use aws to deploy them and used **aws rds postgresql option** instead of **custom postgresql docker container and aws plugin and ebs volumes** for simplicity.
+4. I decided to use aws to deploy them. I used **aws rds postgresql option** instead of **custom postgresql docker container and aws plugin and ebs volumes** for simplicity.
 
 5. I uploaded the project with aws cloud formation with ecs-cli and fargate container options with **ecs-cli compose up** and **docker-compose.yml and ecs-params.yml**.

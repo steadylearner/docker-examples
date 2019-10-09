@@ -126,3 +126,27 @@ router.get("/", (req, res) => {
  cheap       |            800 | another product           | cheap       | (0.01,8)
  no-discount |        1000000 | expensive product without | discount    | (0,0)
 ```
+
+## Requrirments
+
+1. Use gRPC and make two separate serve with it. Then, deploy it with docker containers
+
+2. When user send GET request to /product return products(Birthday 0.05, Blackfirday 0.1).
+
+3. Should work without user gRPC service also.
+
+## Development Process
+
+I used [graphql](https://github.com/steadylearner/Graphql-Express-Postgresql) first to prototype the project and then [gRPC](https://github.com/steadylearner/gRPC-Express-Postgresql) with CRUD operations.
+
+I use **JavaScript, Rust, Python** and thought that **JavaScript** will be useful for this project because your company use Node and go language.
+
+1. Write code in localhost.
+
+2. I used **Tape** for end to end tests because it is faster and **Jest** for general tests and **ESLint** for organization and to find potential problems.
+
+3. Then, I built docker containers for products, users and postgresql.
+
+4. I decided to use aws to deploy them and used aws rds instead of postgresql for simplicity.
+
+5. I uploaded the project with aws cloud formation with ecs-cli and fargate container options.

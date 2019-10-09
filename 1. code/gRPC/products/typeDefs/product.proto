@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+service ProductService {
+    rpc getProducts(Empty) returns (Products) {}
+    rpc getProduct(Id) returns (Product) {}
+    rpc deleteProduct(Id) returns (Empty) {}
+    rpc createProduct(CreateProduct) returns (Product) {}
+    rpc updateProduct(UpdateProduct) returns (Product) {}
+    rpc deleteProducts(Empty) returns (Empty) {}
+}
+
+message Empty {}
+
+message Discount {
+    float pct = 1;
+    uint32 value_in_cents = 2;
+}
+
+message CreateProduct {
+    uint32 price_in_cents = 2;
+    string title = 3;
+    string description = 4;
+    float pct = 5;
+}
+
+message UpdateProduct {
+    string id = 1;
+    uint32 price_in_cents = 2;
+    string title = 3;
+    string description = 4;
+    float pct = 5;
+}
+
+message Product {
+    string id = 1;
+    uint32 price_in_cents = 2;
+    string title = 3;
+    string description = 4;
+    Discount discount = 5;
+}
+
+message Products {
+    repeated Product products = 1;
+}
+
+message Id {
+    string id = 1;
+}
+
+

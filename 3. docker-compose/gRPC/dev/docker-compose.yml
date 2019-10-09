@@ -1,0 +1,41 @@
+# https://docs.docker.com/compose/compose-file/
+
+version: "3"
+services:
+  products:
+    image: steadylearner/products:latest
+    container_name: products
+    ports:
+      - "80:8000"
+    env_file:
+      - gRPC.env
+    command: yarn serve
+    depends_on:
+      - grpc_postgresql
+      - user_product
+    networks:
+      - grpc
+  user_product:
+    image: steadylearner/user_product:latest
+    container_name: user_product
+    env_file:
+      - gRPC.env
+    command: yarn serve
+    depends_on:
+      - grpc_postgresql
+    networks:
+      - grpc
+  grpc_postgresql:
+    image: steadylearner/postgresql
+    container_name: grpc_postgresql
+    volumes:
+       - etc/postgresql
+       - /var/log/postgresql
+       - /var/lib/postgresql
+    networks:
+      - grpc
+networks:
+  grpc:
+
+
+

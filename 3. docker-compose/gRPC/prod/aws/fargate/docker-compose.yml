@@ -1,0 +1,30 @@
+version: "3"
+services:
+  products:
+    image: steadylearner/products:aws
+    container_name: products
+    ports:
+      - "80:80"
+    #  - "50050:50050"
+    env_file:
+      - gRPC.env
+    command: yarn serve
+    # depends_on:
+    #  - user_product
+    # networks:
+    #  - grpc
+  user_product:
+  # user:  
+    image: steadylearner/user_product:aws
+    container_name: user_product
+    env_file:
+      - gRPC.env
+    # ports:
+    #  - "50051:50051"
+    # expose:
+    #  - 50051
+    command: yarn serve
+    # networks:
+    #  - grpc
+# networks:
+# grpc:

@@ -1,0 +1,10 @@
+inspect.txt
+
+node_modules/
+
+# .env
+*.env
+
+ecs-params.yml
+
+

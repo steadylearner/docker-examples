@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+service UserProductService {
+    rpc getUser(Id) returns (User) {}
+    rpc createUser(User) returns (User) {}
+
+    rpc getProduct(Id) returns (Product) {}
+    rpc createProduct(CreateProduct) returns (Product) {}
+} 
+
+message Empty {}
+
+message User {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string date_of_birth = 4;
+}
+
+message Users {
+    repeated User users = 1;
+}
+
+/************************************************/
+
+message Discount {
+    float pct = 1;
+    uint32 value_in_cents = 2;
+}
+
+message CreateProduct {
+    uint32 price_in_cents = 2;
+    string title = 3;
+    string description = 4;
+    float pct = 5;
+}
+
+message Product {
+    string id = 1;
+    uint32 price_in_cents = 2;
+    string title = 3;
+    string description = 4;
+    Discount discount = 5;
+}
+
+/************************************************/
+
+message Id {
+    string id = 1;
+}
+
+

@@ -1,0 +1,36 @@
+{
+  "name": "user-grpc-postgresql",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "description": "grpc-postgresql with CRUD operation for users",
+  "main": "index.js",
+  "keywords": [],
+  "author": "www.steadylearner.com",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.2",
+    "chalk": "^2.4.2",
+    "grpc": "^1.23.3",
+    "moment": "^2.24.0",
+    "pg": "^7.12.1"
+  },
+  "scripts": {
+    "serve": "node index.js",
+    "eslint-init": "node_modules/.bin/eslint --init",
+    "pretest": "eslint .",
+    "fix": "yarn pretest --fix",
+    "test": "jest",
+    "test:watch": "yarn test --watch",
+    "test-tape": "node tests/index.js"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-jest": "^22.17.0",
+    "jest": "^24.9.0",
+    "tape": "^4.11.0"
+  }
+}

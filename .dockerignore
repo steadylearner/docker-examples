@@ -1,0 +1,9 @@
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+
+# .env
+*.env
+
+ecs-params.yml
+
+node_moudles/
+

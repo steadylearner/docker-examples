@@ -1,0 +1,7 @@
+version: '3'
+services:
+  user:
+    image: steadylearner/express_hello
+    ports:
+      - "80:3000"
+

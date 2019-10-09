@@ -131,7 +131,7 @@ router.get("/", (req, res) => {
 
 1. Use gRPC and make two separate services with it for [user, product] and products. Then, deploy them with docker containers.
 
-2. When user send GET request to /product return products(With "x-user-id" header, conditioanlly give Birthday 0.05, Blackfirday 0.1 discount).
+2. When user send GET request to /product return products(With "x-user-id" header, conditionally give Birthday 0.05, Blackfirday 0.1 discount).
 
 3. **product service** should work without user gRPC service also.
 

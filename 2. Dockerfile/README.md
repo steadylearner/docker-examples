@@ -10,9 +10,9 @@ We will use docker-compose.yml **env-files** definition instead of it. It will h
 $docker build --tag=name .
 ```
 
-Use **0.0.0.0** instead of **127.0.0.1 and localhost** to make the docker network connect the docker containers.(Make your web app serve 80 if you find a problem when you deploy.)
+Use **0.0.0.0** instead of **127.0.0.1(localhost)** to make the docker network connect the docker containers.(Make your web app serve 80 if you find a problem when you deploy.)
 
-You can connect to another container in the same network by using their container name.(You can also use localhost and port if you use aws fargate with docker-compose.yml and ecs-params.yml. You can find examples in **docker-compose** folder.)
+[You can connect to another container in the same network by using their container name.](https://aws.amazon.com/pt/blogs/compute/task-networking-in-aws-fargate/)(You can also use localhost and port if you use aws fargate with docker-compose.yml and ecs-params.yml. You can find examples in **docker-compose** folder.)
 
 You can manually make network and include containers with it.
 

@@ -15,7 +15,6 @@ services:
       - user_product
     networks:
       - grpc
-    # https://docs.docker.com/compose/compose-file/
     # https://www.google.com/search?&q=what+is+docker+health+check
     healthcheck:
       test: curl --fail -s http://localhost:8000/product || exit 1
@@ -36,16 +35,21 @@ services:
       interval: 1m
       timeout: 10s
   grpc_postgresql:
-    image: steadylearner/postgresql
+    # https://hub.docker.com/_/postgres
+    image: postgres
     container_name: grpc_postgresql
+    # https://docs.docker.com/compose/compose-file/#volumes
     volumes:
-       - etc/postgresql
-       - /var/log/postgresql
-       - /var/lib/postgresql
+       - db/etc/postgresql
+       - db/var/log/postgresql
+       - db/var/lib/postgresql
     networks:
       - grpc
 networks:
   grpc:
+volumes:
+  db:
+
 
 
 

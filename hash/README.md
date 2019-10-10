@@ -1,6 +1,6 @@
 # Use this commands to test end points or your browser.
 
-You can also visit 34.229.244.47/product directly.
+You can also visit 34.229.105.117/product directly.
 
 1. Without header
 
@@ -12,7 +12,7 @@ $curl 34.229.105.117/product
 {"payload":[{"id":"expensive","price_in_cents":1000,"title":"product","description":"expensive","discount":{"pct":"0.01","value_in_cents":10}},{"id":"cheap","price_in_cents":800,"title":"another product","description":"cheap","discount":{"pct":"0.01","value_in_cents":8}},{"id":"no-discount","price_in_cents":1000000,"title":"expensive product without","description":"discount","discount":{"pct":"0","value_in_cents":0}}]}
 ```
 
-2. With header but it is not birthday of the user
+2. With header, but it is not the birthday of the user.
 
 ```console
 $curl -H "x-user-id: steadylearner" 34.229.105.117/product
@@ -22,11 +22,12 @@ $curl -H "x-user-id: steadylearner" 34.229.105.117/product
 {"payload":[{"id":"expensive","price_in_cents":1000,"title":"product","description":"expensive","discount":{"pct":"0.01","value_in_cents":10}},{"id":"cheap","price_in_cents":800,"title":"another product","description":"cheap","discount":{"pct":"0.01","value_in_cents":8}},{"id":"no-discount","price_in_cents":1000000,"title":"expensive product without","description":"discount","discount":{"pct":"0","value_in_cents":0}}]}
 ```
 
-3. With header but it is birthday of the user
+3. With header, but it is the birthday of the user.
 
 ```console
-$curl -H "x-user-id: 2019-10-09" 34.229.105.117/product
 $curl -H "x-user-id: 2019-10-10" 34.229.105.117/product
+$curl -H "x-user-id: 2019-10-11" 34.229.105.117/product
+$curl -H "x-user-id: 2019-10-12" 34.229.105.117/product
 ```
 
 ```json
@@ -132,7 +133,7 @@ router.get("/", (req, res) => {
 
 1. Use gRPC and make two separate services with it for [user, product] and products. Then, deploy them with docker containers.
 
-2. When users send GET request to /product, return products. When it was sent with "x-user-id" header, conditionally give Birthday 5%, Blackfirday 10% discount.
+2. When users send GET request to /product, return products. When it was sent with "x-user-id" header, conditionally give them products with Birthday 5%, Blackfirday 10% discount.
 
 3. **product gRPC service** should work without user service also.
 
@@ -142,12 +143,12 @@ I used [graphql](https://github.com/steadylearner/Graphql-Express-Postgresql) fi
 
 I use **JavaScript, Rust, Python** and thought that **JavaScript** will be useful for this project because your company use Node and go language.
 
-1. I coded gRPC Node servers for users and products with **pg**(postgresql) in the localhost.
+1. I coded gRPC Node servers for [user, product] and products with **pg**(postgresql) in the localhost.
 
-2. I used **Tape** for end to end tests for /product because it is faster. Then, I included **Jest** for general tests and **ESLint** for code organization and to find potential problems.
+2. I used **Tape** for end to end tests for /product because it is faster. Then, I included **Jest** for general tests(including end to end test) and **ESLint** for code organization and to find potential problems.
 
 3. Then, I built docker containers for products, users and postgresql to test it locally with **Dockerfile**, **$docker-compose up -d** and the **docker-compose.yml**.
 
 4. I decided to use aws to deploy them. I used **aws rds postgresql option** instead of **custom postgresql docker container and aws plugin and ebs volumes** for simplicity.
 
-5. I uploaded the project with aws cloud formation with ecs-cli and fargate container launch options with **ecs-cli** and **docker-compose.yml and ecs-params.yml**.
+5. I uploaded the project with aws cloud formation with FARGATE container launch options to use awsvpc network mode. I used **ecs-cli** and **docker-compose.yml and ecs-params.yml** from aws.

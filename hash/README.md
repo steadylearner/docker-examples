@@ -5,7 +5,7 @@ You can also visit 34.229.244.47/product directly.
 1. Without header
 
 ```console
-$curl 34.229.244.47/product
+$curl 34.229.105.117/product
 ```
 
 ```json
@@ -15,7 +15,7 @@ $curl 34.229.244.47/product
 2. With header but it is not birthday of the user
 
 ```console
-$curl -H "x-user-id: steadylearner" 34.229.244.47/product
+$curl -H "x-user-id: steadylearner" 34.229.105.117/product
 ```
 
 ```json
@@ -25,8 +25,8 @@ $curl -H "x-user-id: steadylearner" 34.229.244.47/product
 3. With header but it is birthday of the user
 
 ```console
-$curl -H "x-user-id: 2019-10-09" 34.229.244.47/product
-$curl -H "x-user-id: 2019-10-10" 34.229.244.47/product
+$curl -H "x-user-id: 2019-10-09" 34.229.105.117/product
+$curl -H "x-user-id: 2019-10-10" 34.229.105.117/product
 ```
 
 ```json

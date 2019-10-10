@@ -50,7 +50,7 @@ Read those first if you want.
 
 The payload of them are **you should use FARGATE instead of ec2** to connect containers in the same network. It will make **localhost:port** and **containername** work as it does in your local docker-compose environment.
 
-It only works with awsvpc option when you deploy them to aws. FARGATE launch option is specialized to work only with awsvpc. The documentations won't never tell you about it directly.
+It only works with awsvpc option when you deploy them to aws. [FARGATE](https://medium.com/@matheus510.fonseca/aws-ecs-fargate-what-it-is-should-i-use-80d678e00ab9) launch option is specialized to work only with awsvpc. The documentations won't never tell you about it directly.
 
 **Use this command.**
 

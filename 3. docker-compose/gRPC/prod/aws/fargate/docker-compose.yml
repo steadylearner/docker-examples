@@ -13,6 +13,10 @@ services:
     #  - user_product
     # networks:
     #  - grpc
+    healthcheck:
+      test: curl --fail -s http://localhost:80/product || exit 1
+      interval: 1m
+      timeout: 10s
   user_product:
   # user:  
     image: steadylearner/user_product:aws
@@ -24,6 +28,10 @@ services:
     # expose:
     #  - 50051
     command: yarn serve
+    healthcheck:
+      test: curl --fail -s http://localhost:50051 || exit 1
+      interval: 1m
+      timeout: 10s
     # networks:
     #  - grpc
 # networks:

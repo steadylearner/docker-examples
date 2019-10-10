@@ -15,6 +15,12 @@ services:
       - user_product
     networks:
       - grpc
+    # https://docs.docker.com/compose/compose-file/
+    # https://www.google.com/search?&q=what+is+docker+health+check
+    healthcheck:
+      test: curl --fail -s http://localhost:8000/product || exit 1
+      interval: 1m
+      timeout: 10s
   user_product:
     image: steadylearner/user_product:latest
     container_name: user_product
@@ -25,6 +31,10 @@ services:
       - grpc_postgresql
     networks:
       - grpc
+    healthcheck:
+      test: curl --fail -s http://localhost:50051 || exit 1
+      interval: 1m
+      timeout: 10s
   grpc_postgresql:
     image: steadylearner/postgresql
     container_name: grpc_postgresql

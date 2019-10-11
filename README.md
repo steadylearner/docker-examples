@@ -548,15 +548,15 @@ You should learn how [volume](https://docs.docker.com/storage/volumes/) and [com
 
 ## How to deploy your docker images
 
-1. Code
+1. Code.
 
 2. Make docker images with Dockerfile.
 
 3. Deploy them with docker-compose.
-.
+
 4. Test end points with Curl or other test frameworks.
 
-5. Learn SDK for Docker, aws and others
+5. Learn SDK for Docker, aws and others.
 
 [You may read this and test it in your local machine.](https://github.com/steadylearner/docker-examples/blob/master/0.%20learn/prod/README.md)
 

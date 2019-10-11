@@ -550,10 +550,10 @@ You should learn how [volume](https://docs.docker.com/storage/volumes/) and [com
 
 1. Code
 
-2. Make docker images with Dockerfile and codes from **1.**
+2. Make docker images with Dockerfile.
 
-3. Deploy them with docker-compose
-
+3. Deploy them with docker-compose.
+.
 4. Test end points with Curl or other test frameworks.
 
 5. Learn SDK for Docker, aws and others

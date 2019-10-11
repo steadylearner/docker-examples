@@ -1,4 +1,4 @@
-# How to deploy docker images
+# How to test docker images in your local machine
 
 Start with these but you don't have to spend much time with them because there are already examples in [Steadylearner Docker Examples](https://github.com/steadylearner/docker-examples)
 

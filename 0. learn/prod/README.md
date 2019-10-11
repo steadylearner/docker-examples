@@ -1,10 +1,12 @@
-# How to deploy 
+# How to deploy docker images
+
+Start with these but you don't have to spend much time with them because there are already examples in [Steadylearner Docker Examples](https://github.com/steadylearner/docker-examples)
 
 1. [Docker Swarm](https://docs.docker.com/get-started/part3/)
 
-2. [aws website](https://aws.amazon.com/pt/elasticbeanstalk/), [From docker curriculum](https://docker-curriculum.com/#docker-on-aws)
+2. [aws website](https://aws.amazon.com/pt/elasticbeanstalk/), [ecs](https://docker-curriculum.com/#docker-on-aws)
 
-When you deploy your containers, it is called services and those are used to do this.
+When you deploy your containers, it is called services.
 
 ## Start with Dockerfile
 
@@ -12,19 +14,19 @@ When you deploy your containers, it is called services and those are used to do 
 $docker build --tag=ubuntu_node .
 ```
 
-## Docker Swarm
+Dockerfile is just the set of commands you used before.
 
-Install it first with 
+## Install Docker Swarm
 
 ```console
 $sudo apt install docker-compose
 ```
 
-### 1. Make it to Services in localhost
+## Make docker images to services in localhost
 
-and **$docker swarm init** if you haven't yet in the folder you want to deploy docker containers.
+Use **$docker swarm init** if you haven't yet in the folder you want to test docker containers with it.
 
-Then, deploy it with this.
+Then, use this.
 
 ```console
 $docker stack deploy -c docker-compose.yml ubuntunode
@@ -32,7 +34,7 @@ $docker stack deploy -c docker-compose.yml ubuntunode
 // Creating service productusers_web
 ```
 
-Test [$docker-compose up ubuntunode](https://docs.docker.com/compose/) command later also.
+Test [$docker-compose up ubuntunode](https://docs.docker.com/compose/) command later.
 
 You can verify the result with
 
@@ -41,7 +43,7 @@ $docker service ls # or
 $docker stack services ubuntunode
 ```
 
-containers in a services are called tasks. Verify them with
+Containers in services are called tasks. Verify them with this.
 
 ```console
 $docker service ps ubuntunode_web # or
@@ -54,13 +56,11 @@ and all the tasks with this.
 $docker container ls -q
 ```
 
-This point(a single-host mode on local machine)
+With this(a single-host mode on local machine), you can visit http://localhost:3000/ and verify the result.
 
-You can visit http://localhost:3000/ and verify the result.
+## Use Swarm with Docker Machine made from virtual machines
 
-### 2. Use Swarm with Docker Machine made with virtualmachine
-
-[Install it first](https://docs.docker.com/machine/install-machine/#installing-machine-directly)
+[Install docker-machine first with this commands.](https://docs.docker.com/machine/install-machine/#installing-machine-directly)
 
 ```console
 base=https://github.com/docker/machine/releases/download/v0.16.0 &&
@@ -71,11 +71,11 @@ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
 
 and **$docker-machine --version**.
 
-This point, your containers join Docker swarm clusters and called **nodes** and managed by **swaram manager**(swarm mode and can include **workers** to help them.)
+This point, your containers join Docker swarm clusters and called **nodes** and managed by **swarm manager**(swarm mode and can include **workers** to help them.)
 
-You need to install [virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads) at this point and its role is hypervisor of docker nodes.
+You need to install [virtualbox](https://www.virtualbox.org/wiki/Linux_Downloads) first.
 
-[Refer to this](https://vitux.com/how-to-install-virtualbox-on-ubuntu/).
+[Refer to this to install them](https://vitux.com/how-to-install-virtualbox-on-ubuntu/).
 
 ```console
 $virtualbox
@@ -99,7 +99,7 @@ $virtualbox or $docker-machine ls and it will show them
 Make a manager and worker with them
 
 ```console
-$docker-machine ssh myvm1 "docker swarm init --advertise-addr 192.168.99.100:2377"
+$docker-machine ssh myvm1 "docker swarm init --advertise-addr yourvirtualmachineip"
 $docker-machine ssh myvm2 "command shown by the preivous command with token"
 // This node joined a swarm as a worker.
 ```
@@ -110,21 +110,19 @@ Verify the result
 $docker-machine ssh myvm1 "docker node ls"
 ```
 
-#### Use docker-machine env to make it more easily usable
+## Use docker-machine env to make it more easily usable
 
 ```console
-$docker-machine env myvm1 
+$docker-machine env myvm1
 ```
 
-Then, copy and paste and follow the instruction
+Then, follow the instruction and verify the result with **docker-machine ls** and show active state with *.
 
-and verify the result with **docker-machine ls** and show active state with *.
-
-Repeat the same process in **1.** with this.
+Repeat the same process we used before with this.
 
 ```console
 $docker stack deploy -c docker-compose.yml ubuntunode
-$docker service ls 
+$docker service ls
 $docker service ps ubuntunode_web or docker service ls ubuntunode
 ```
 
@@ -132,10 +130,10 @@ Then, you can see the myvm1 and myvm2 are used for **node**.
 
 Refer to **docker-machine ls** and
 
-You can visit http://192.168.99.101:3000/ or http://192.18.99.100:3000/ and verify the result.
+You can visit yourvirtualmachineip or othervirtualmachinerip and verify the result.
 (http://localhost:3000 won't work with this.)
 
-It affects severly performance of the machine
+They affect the performance of the machine so use it with caution.
 
 ```console
 // Remove them after you test
@@ -143,34 +141,11 @@ $docker-machine rm myvm1 myvm2
 $eval $(docker-machine env -u)
 ```
 
-If you want to restart the machines
+If you want to restart the virtual machines, use them.
 
-```
+```console
 $docker-machine ls
-$docker-machine start myvm1 
+$docker-machine start myvm1
 $docker-machine start myvm2
 # and port will work anyway and you can test them with $virtualbox also
-# is swarm and machine are separated and machines are necessary for swarm to work?
 ```
-
-### Use stacks for many micro services to work
-
-Could include visualizer with web service and read redis exmaple with [this](https://docs.docker.com/get-started/part5/) and new docker-compose file.
-
-Should find which to use docker-engine enterprise or community, aws, kubernate etc and test with one of those cloud servers.
-
-Search more before you move on to the aws about deploying docker images with docker enterprise and docker engine - community
-
-## aws
-
-1. Should make account first
-
-2. [Follow this example](https://docker-curriculum.com/#docker-on-aws), https://www.saltycrane.com/blog/2019/01/how-run-postgresql-docker-mac-local-development, https://docs.aws.amazon.com/pt_br/elasticbeanstalk/latest/dg/create_deploy_docker_v2config.html#create_deploy_docker_v2config_dockerrun(Dockerrun.aws.json or aws-compose.yml)
-
-https://docs.aws.amazon.com/pt_br/elasticbeanstalk/latest/dg/GettingStarted.html
-https://docs.aws.amazon.com/pt_br/elasticbeanstalk/latest/dg/create_deploy_docker.html
-https://docs.aws.amazon.com/pt_br/elasticbeanstalk/latest/dg/create_deploy_nodejs.html
-https://docs.aws.amazon.com/pt_br/elasticbeanstalk/latest/dg/create-deploy-python-apps.html
-
-
-

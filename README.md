@@ -1,6 +1,6 @@
 # How to learn docker
 
-Start with them.
+Start with these.
 
 1. [Official Website](https://docs.docker.com/get-started/)
 
@@ -546,8 +546,22 @@ You should learn how [volume](https://docs.docker.com/storage/volumes/) and [com
 
 </details>
 
+## How to deploy your docker images
+
+1. Code
+
+2. Make docker images with Dockerfile and codes from **1.**
+
+3. Deploy them with docker-compose
+
+4. Test end points with Curl or other test frameworks.
+
+5. Learn SDK for Docker, aws and others
+
+[You may read this and test it in your local machine.](https://github.com/steadylearner/docker-examples/blob/master/0.%20learn/prod/README.md)
+
 ## READ MORE
 
 1. [Building Blocks of Amazon ECS](https://aws.amazon.com/pt/blogs/compute/building-blocks-of-amazon-ecs/)
-2. [rds](https://aws.amazon.com/rds/) or [docker Cloudstor plugin with volume](https://spotinst.com/blog/ecs-persistent-storage-docker-plugins/) to use postgresql 
+2. [rds](https://aws.amazon.com/rds/) or [docker Cloudstor plugin with volume](https://spotinst.com/blog/ecs-persistent-storage-docker-plugins/) to use postgresql
 

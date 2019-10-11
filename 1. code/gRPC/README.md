@@ -10,7 +10,7 @@
 
 ## .env
 
-It should be similar to this.
+It should be similar to this for **products** and **user_product**.
 
 ```console
 GRPC=postgres://postgres:postgres@localhost/grpc

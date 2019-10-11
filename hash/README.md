@@ -1,6 +1,6 @@
 # Use this commands to test end points or your browser.
 
-You can also visit 34.229.105.117/product directly.
+You can also visit 34.229.105.117/product directly. The payloads of this proejct will be [1. code/gRPC folder](https://github.com/steadylearner/docker-examples/tree/master/1.%20code/gRPC) and the [docker-compose.yml](https://github.com/steadylearner/docker-examples/blob/master/3.%20docker-compose/gRPC/prod/aws/fargate/docker-compose.yml).
 
 1. Without header
 

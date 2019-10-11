@@ -7,3 +7,11 @@
 3. **$yarn serve** in **user_product** to start gRPC server and **$yarn test-tape** in another console to test user and product datas from the server.
 
 4. **$yarn serve** in **products** to start gRPC server with express server to serve /product route in another console. Then, **$yarn test-tape** in another console while **user_product** gRPC server from **3.** are not closed.
+
+## .env
+
+It should be similar to this.
+
+```console
+GRPC=postgres://postgres:postgres@localhost/grpc
+```

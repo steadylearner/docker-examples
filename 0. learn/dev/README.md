@@ -545,9 +545,3 @@ You should learn how [volume](https://docs.docker.com/storage/volumes/) and [com
 2. [Read the pratical example](https://www.saltycrane.com/blog/2019/01/how-run-postgresql-docker-mac-local-development/)
 
 </details>
-
-## READ MORE
-
-1. [Building Blocks of Amazon ECS](https://aws.amazon.com/pt/blogs/compute/building-blocks-of-amazon-ecs/)
-2. [rds](https://aws.amazon.com/rds/) or [docker Cloudstor plugin with volume](https://spotinst.com/blog/ecs-persistent-storage-docker-plugins/) to use postgresql 
-

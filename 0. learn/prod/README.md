@@ -9,7 +9,7 @@ When you deploy your containers, it is called services and those are used to do 
 ## Start with Dockerfile
 
 ```console
-$docker build --tag=ubuntu-node .
+$docker build --tag=ubuntu_node .
 ```
 
 ## Docker Swarm

@@ -22,12 +22,16 @@ $curl -H "x-user-id: steadylearner" 34.229.105.117/product
 {"payload":[{"id":"expensive","price_in_cents":1000,"title":"product","description":"expensive","discount":{"pct":"0.01","value_in_cents":10}},{"id":"cheap","price_in_cents":800,"title":"another product","description":"cheap","discount":{"pct":"0.01","value_in_cents":8}},{"id":"no-discount","price_in_cents":1000000,"title":"expensive product without","description":"discount","discount":{"pct":"0","value_in_cents":0}}]}
 ```
 
-3. With header, but it is the birthday of the user.
+3. With header, but it is the birthday of the user. Use the date you read this file.
 
 ```console
-$curl -H "x-user-id: 2019-10-10" 34.229.105.117/product
-$curl -H "x-user-id: 2019-10-11" 34.229.105.117/product
-$curl -H "x-user-id: 2019-10-12" 34.229.105.117/product
+$curl -H "x-user-id: 2019-10-13" 34.229.105.117/product
+$curl -H "x-user-id: 2019-10-14" 34.229.105.117/product
+$curl -H "x-user-id: 2019-10-15" 34.229.105.117/product
+$curl -H "x-user-id: 2019-10-16" 34.229.105.117/product
+$curl -H "x-user-id: 2019-10-17" 34.229.105.117/product
+$curl -H "x-user-id: 2019-10-18" 34.229.105.117/product
+$curl -H "x-user-id: 2019-10-19" 34.229.105.117/product
 ```
 
 ```json
@@ -117,6 +121,13 @@ router.get("/", (req, res) => {
  2019-10-10                 | 2019-10-10   | 2019-10-10     | 2019-10-10
  2019-10-11                 | 2019-10-11   | 2019-10-11     | 2019-10-11
  2019-10-12                 | 2019-10-12   | 2019-10-12     | 2019-10-12
+ 2019-10-13                 | 2019-10-13   | 2019-10-13     | 2019-10-13
+ 2019-10-14                 | 2019-10-14   | 2019-10-14     | 2019-10-14
+ 2019-10-15                 | 2019-10-15   | 2019-10-15     | 2019-10-15
+ 2019-10-16                 | 2019-10-16   | 2019-10-16     | 2019-10-16
+ 2019-10-17                 | 2019-10-17   | 2019-10-17     | 2019-10-17
+ 2019-10-18                 | 2019-10-18   | 2019-10-18     | 2019-10-18
+ 2019-10-19                 | 2019-10-19   | 2019-10-19     | 2019-10-19
 ```
 
 2. products

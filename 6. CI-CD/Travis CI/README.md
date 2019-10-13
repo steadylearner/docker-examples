@@ -14,4 +14,4 @@
 
 1. For this repository, **travis.yml** files should be used for the projects in **1. code** first with GitHub.
 
-2. Then, you may upgrade it to consolidate all the processes to **4. test**. Refer to [deployment and upload examples](https://docs.travis-ci.com/user/deployment).
+2. Then, you may upgrade it to consolidate all the processes to **4. test**. Refer to [deployment and upload examples](https://docs.travis-ci.com/user/deployment), [Docker Inetgration](https://docs.travis-ci.com/user/docker/) and [CLI](https://github.com/travis-ci/travis.rb#readme).

@@ -14,7 +14,7 @@ Start with these.
 
 ## Verify it
 
-Follow [the instruction](https://thenewstack.io/how-to-deploy-a-container-with-docker/).
+[Refer to this.](https://thenewstack.io/how-to-deploy-a-container-with-docker/).
 
 ```console
 $docker search nginx
@@ -35,8 +35,6 @@ Commercial support is available at nginx.com.
 Thank you for using nginx.
 ```
 
-in localhost webpage.
-
 ## Start the docker container in detached mode and execute commands with bash
 
 ```console
@@ -56,7 +54,7 @@ $docker pull ubuntu
 $docker run -it ubuntu sh
 ```
 
-Then, install Curl first to download other programs.
+Then, install **Curl** first to download other programs.
 
 ```console
 $apt-get update
@@ -64,7 +62,7 @@ $apt-get install curl
 $curl https://www.steadylearner.com
 ```
 
-If you are out, you can start it with
+If you are out of the container, you can start it with
 
 ```console
 $docker exec -it CONTAINER_id bash
@@ -72,7 +70,7 @@ $docker exec -it CONTAINER_id bash
 
 Read more about [docker lifecycle](https://medium.com/@nagarwal/lifecycle-of-docker-container-d2da9f85959).
 
-If you want to set up Node development environment. Follow these processes to install some of them.
+If you want to set up the Node development environment. Follow these processes.
 
 You can use Dockerfile or [$docker run -d steadylearner/ubuntu_node](https://cloud.docker.com/u/steadylearner/repository/docker/steadylearner/ubuntu_node) instead.
 
@@ -183,7 +181,7 @@ $git clone https://github.com/steadylearner/docker-examples.git
 
 ## Test them
 
-Verify the yarn version.
+Verify the yarn version first.
 
 ```console
 $yarn -v
@@ -209,9 +207,9 @@ const hello = blue("Hello from www.steadylearner.com");
 console.log(hello);
 ```
 
-We verified that NPM modules work in a docker container.
+We verified that NPM modules work in a docker container with this.
 
-If you want
+If you want, use this also.
 
 ```console
 $vim ~/.bashrc
@@ -223,7 +221,7 @@ then :wq to save and quit
 $source ~/.bashrc
 ```
 
-Then, you can visit your node project with **$work** wherever you want.
+Then, you can visit your node project with **$work** whenever you want. You can also define WORKDIR later in Dockerfile or docker-compsose.yml instead for the similar purpose.
 
 ## List and remove previous docker instances
 
@@ -231,7 +229,7 @@ Then, you can visit your node project with **$work** wherever you want.
 $docker ps -a
 ```
 
-It will show the list of instances you executed before. Then, use these commands to remove what you wouldn't use.
+It will show the list of the container instances you executed before. Then, use these commands to remove what you wouldn't use.
 
 ```console
 $docker stop containerid
@@ -246,7 +244,7 @@ $docker rm containerid -f
 
 ## How to move your local files and folers to docker contaienrs
 
-We could use git commands to donwload files from the GitHub. We will also learn how to use docker commands to move local files and folder in your conatiners.
+We could use git commands to donwload files from the GitHub. We will also learn how to use docker commands to move local files and folder in your conatiners and vice versa.
 
 1. Files
 
@@ -349,13 +347,13 @@ Refer to [the inspect command from the docker official website](https://docs.doc
 
 ## Useful Commands
 
-### Show logs of the container
+### Logs of the container
 
 ```console
 $docker logs containerid | name
 ```
 
-### Show history of the image
+### History of the image
 
 ```console
 #docker history steadylearner/ubuntu_node
@@ -365,16 +363,16 @@ $docker logs containerid | name
 
 ```console
 $docker images
-$docker image dockerimagename
+$docker image rm dockerimagename or docker rmi
 ```
 
 ### Rename the container
 
 ```console
-$docker rename randomname ubunut_node
+$docker rename randomname whatyouwant
 ```
 
-and you can use name instead of id. For example, **$docker exec -it ubuntu_node bash**.
+You can also use id instead of name also.
 
 ### Pause and unpause the containers
 
@@ -402,7 +400,7 @@ $docker container rm containerid | name
 
 ## How to modify network ports for docker image
 
-[Search](https://www.google.com/search?&q=how+to+assign+port+for+docker+container) or start with custom port you want to use.
+[Search](https://www.google.com/search?&q=how+to+assign+port+for+docker+container) and start with custom port you want to use.
 
 ```console
 $docker run -it --name ubuntu_node -p 80:80 ubuntu
@@ -436,7 +434,7 @@ or you can start with Dockerfile instead of **1.** and **2.** and commit your do
 $docker login
 ```
 
-Then, use **$docker commit** with [this blog posts](https://www.scalyr.com/blog/create-docker-image)
+Then, use **$docker commit**. [Refer to this blog post](https://www.scalyr.com/blog/create-docker-image)
 
 ```console
 $docker commit ubuntu_node
@@ -463,16 +461,16 @@ $docker commit ubuntu_node steadylearner/ubuntu_node
 ### How to push your docker image to Docker Hub
 
 ```console
-$docker push steadylearner/ubuntu_node
+$docker push steadylearner/ubuntu_node // yourusername/image
 ```
 
-Wait for uploading process to complete and you can use this.
+Wait for uploading process to complete and use this.
 
 ```console
 $docker run -it steadylearner/ubuntu_node bash
 ```
 
-Then, follow the same process you used before and exit the container.
+Then, follow the same process you used before to test it worked and you may exit the container.
 
 You can restart the containers with this.
 
@@ -481,7 +479,7 @@ $docker restart containerid
 $docker exec -it containerid bash
 ```
 
-You can remove previous ubuntu docker image and ubuntu_node container if you want
+You can remove container made from steadylearner/ubuntu_node container or yours with this.
 
 ```console
 $docker stop ubuntu_node
@@ -489,17 +487,17 @@ $docker container rm ubuntu_node
 $docker image rm ubuntu
 ```
 
-Then, rename the container from steadylearner/'
+or rename the container.
 
 ```console
 $docker container rename randomname ubuntu_node
 ```
 
-Use your container name instead of ubuntu_node or steadylearner/ubuntu_node.
+Use yours instead of ubuntu_node or steadylearner/ubuntu_node.
 
 ## How to push the container after you modify it
 
-Modify the project then use this.
+Modify the project then use the commands similar to this.
 
 ```console
 $docker commit ubuntu_node steadylearner/ubuntu_node
@@ -548,20 +546,21 @@ You should learn how [volume](https://docs.docker.com/storage/volumes/) and [com
 
 ## How to deploy your docker images
 
-1. Code.
+1. Code
 
 2. Make docker images with Dockerfile.
 
 3. Deploy them with docker-compose.
-
+.
 4. Test end points with Curl or other test frameworks.
 
-5. Learn SDK for Docker, aws and others.
+5. Learn SDK for Docker, aws and others
 
 [You may read this and test it in your local machine.](https://github.com/steadylearner/docker-examples/blob/master/0.%20learn/prod/README.md)
 
 ## READ MORE
 
 1. [Building Blocks of Amazon ECS](https://aws.amazon.com/pt/blogs/compute/building-blocks-of-amazon-ecs/)
-2. [rds](https://aws.amazon.com/rds/) or [docker Cloudstor plugin with volume](https://spotinst.com/blog/ecs-persistent-storage-docker-plugins/) to use postgresql
+2. [rds](https://aws.amazon.com/rds/) or [docker Cloudstor plugin with volume](https://spotinst.com/blog/ecs-persistent-storage-docker-plugins/) to use postgresql.
+
 

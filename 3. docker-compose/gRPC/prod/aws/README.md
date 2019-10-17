@@ -89,3 +89,18 @@ run_params:
       assign_public_ip: ENABLED
 ```
 
+
+## How to clear everything
+
+Use aws website first. EC2, ECS, Cloudformation, RDS, elasticbeanstalk.
+
+```console
+$aws ecs list-clusters
+$aws ec2 describe-instances
+$aws ec2 describe-volumes
+$aws cloudformation list-stacks
+$aws rds describe-db-instances
+$aws elasticbeanstalk describe-applications
+```
+
+Then, you should visit and verify the service cost you more after this at https://console.aws.amazon.com/cost-reports/home?#/dashboard. 

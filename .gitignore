@@ -5,6 +5,8 @@ node_modules/
 # .env
 *.env
 
+hash/
+
 ecs-params.yml
 
 

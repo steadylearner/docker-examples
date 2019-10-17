@@ -22,7 +22,7 @@ $curl -H "x-user-id: steadylearner" 34.229.105.117/product
 {"payload":[{"id":"expensive","price_in_cents":1000,"title":"product","description":"expensive","discount":{"pct":"0.01","value_in_cents":10}},{"id":"cheap","price_in_cents":800,"title":"another product","description":"cheap","discount":{"pct":"0.01","value_in_cents":8}},{"id":"no-discount","price_in_cents":1000000,"title":"expensive product without","description":"discount","discount":{"pct":"0","value_in_cents":0}}]}
 ```
 
-3. With header, but it is the birthday of the user. Use the date you read this file.
+3. With header, but it is the birthday of the user.
 
 ```console
 $curl -H "x-user-id: 2019-10-13" 34.229.105.117/product
